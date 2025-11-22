@@ -1,3 +1,57 @@
-[gd_scene format=3 uid="uid://ct4pimxcqg278"]
+[gd_scene load_steps=3 format=3 uid="uid://ct4pimxcqg278"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="FontFile" uid="uid://obhs67da4s2u" path="res://Assets/Fonts/8-BIT WONDER.TTF" id="1_p4ecl"]
+
+[sub_resource type="GDScript" id="GDScript_lti8b"]
+script/source = "extends Button
+
+
+
+
+func _on_button_up() -> void:
+	get_tree().change_scene_to_file(\"res://SelectLevel.tscn\")
+"
+
+[node name="Menu" type="Node2D"]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_direction = 4
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 6.0
+offset_top = -23.0
+offset_right = 1926.0
+offset_bottom = 1057.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="CenterContainer"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("1_p4ecl")
+theme_override_font_sizes/font_size = 106
+text = "Play"
+script = SubResource("GDScript_lti8b")
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+layout_direction = 4
+offset_right = 608.0
+offset_bottom = 200.0
+
+[node name="Settings" type="Button" parent="CenterContainer2"]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("1_p4ecl")
+theme_override_font_sizes/font_size = 80
+text = "Settings"
+script = SubResource("GDScript_lti8b")
+
+[connection signal="button_up" from="CenterContainer/Button" to="CenterContainer/Button" method="_on_button_up"]
+[connection signal="button_up" from="CenterContainer2/Settings" to="CenterContainer2/Settings" method="_on_button_up"]
