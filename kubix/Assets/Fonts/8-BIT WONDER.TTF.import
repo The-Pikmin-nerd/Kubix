@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://obhs67da4s2u"
-path="res://.godot/imported/8-BIT WONDER.TTF-ebe9de9bba077b343fcafb86fd6ce642.fontdata"
+path="res://.godot/imported/8-BIT WONDER.TTF-dab39dece0b354432251b7798d846574.fontdata"
 
 [deps]
 
-source_file="res://Sounds/8-BIT WONDER.TTF"
-dest_files=["res://.godot/imported/8-BIT WONDER.TTF-ebe9de9bba077b343fcafb86fd6ce642.fontdata"]
+source_file="res://Assets/Fonts/8-BIT WONDER.TTF"
+dest_files=["res://.godot/imported/8-BIT WONDER.TTF-dab39dece0b354432251b7798d846574.fontdata"]
 
 [params]
 
