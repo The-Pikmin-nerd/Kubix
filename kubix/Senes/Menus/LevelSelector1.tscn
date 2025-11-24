@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfxg6eeyj3rhq"]
+[gd_scene load_steps=6 format=3 uid="uid://bfxg6eeyj3rhq"]
 
 [ext_resource type="FontFile" uid="uid://obhs67da4s2u" path="res://Assets/Fonts/8-BIT WONDER.TTF" id="1_k6kv7"]
+[ext_resource type="Script" uid="uid://doyoehggr2g1t" path="res://Senes/Menus/character_body_2d.gd" id="1_qumjf"]
+[ext_resource type="Script" uid="uid://dcsrlksxra46x" path="res://Senes/Menus/character_body_2d_3.gd" id="3_sfmyv"]
+[ext_resource type="Script" uid="uid://bu0h4yrf68clf" path="res://Senes/Menus/character_body_2d_2.gd" id="4_j2ivi"]
 
 [sub_resource type="GDScript" id="GDScript_aredp"]
 resource_name = "Button1IsPressed"
@@ -15,38 +18,19 @@ func _on_button_up() -> void:
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_direction = 4
-offset_right = 1934.0
-offset_bottom = 1057.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 metadata/_edit_use_anchors_ = true
 
-[node name="2" type="Button" parent="CenterContainer"]
-custom_minimum_size = Vector2(500, 500)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("1_k6kv7")
-theme_override_font_sizes/font_size = 300
-text = "2"
+[node name="ButtonAnimate1" type="CharacterBody2D" parent="CenterContainer"]
+script = ExtResource("1_qumjf")
 
-[node name="3" type="Button" parent="CenterContainer/2"]
+[node name="1" type="Button" parent="CenterContainer/ButtonAnimate1"]
 custom_minimum_size = Vector2(500, 500)
-layout_mode = 0
-offset_left = 563.0
-offset_right = 1063.0
-offset_bottom = 500.0
-size_flags_horizontal = 6
-size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("1_k6kv7")
-theme_override_font_sizes/font_size = 300
-text = "3"
-
-[node name="1" type="Button" parent="CenterContainer/2"]
-custom_minimum_size = Vector2(500, 500)
-layout_mode = 0
-offset_left = -581.0
-offset_top = -6.0
-offset_right = -81.0
-offset_bottom = 494.0
+offset_left = 136.0
+offset_top = 288.0
+offset_right = 636.0
+offset_bottom = 788.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 theme_override_fonts/font = ExtResource("1_k6kv7")
@@ -54,13 +38,36 @@ theme_override_font_sizes/font_size = 300
 text = "1"
 script = SubResource("GDScript_aredp")
 
-[node name="CenterContainer2" type="CenterContainer" parent="."]
-layout_direction = 4
-offset_right = 1934.0
-offset_bottom = 1057.0
-metadata/_edit_use_anchors_ = true
+[node name="ButtonAnimate2" type="CharacterBody2D" parent="CenterContainer"]
+script = ExtResource("3_sfmyv")
 
-[node name="Button" type="Button" parent="CenterContainer2"]
-layout_mode = 2
+[node name="2" type="Button" parent="CenterContainer/ButtonAnimate2"]
+custom_minimum_size = Vector2(500, 500)
+offset_left = 710.0
+offset_top = 290.0
+offset_right = 1210.0
+offset_bottom = 790.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("1_k6kv7")
+theme_override_font_sizes/font_size = 300
+text = "2"
 
-[connection signal="button_up" from="CenterContainer/2/1" to="CenterContainer/2/1" method="_on_button_up"]
+[node name="ButtonAnimate3" type="CharacterBody2D" parent="CenterContainer"]
+script = ExtResource("4_j2ivi")
+
+[node name="3" type="Button" parent="CenterContainer/ButtonAnimate3"]
+custom_minimum_size = Vector2(500, 500)
+offset_left = 1280.0
+offset_top = 290.0
+offset_right = 1780.0
+offset_bottom = 790.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("1_k6kv7")
+theme_override_font_sizes/font_size = 300
+text = "3"
+
+[connection signal="button_up" from="CenterContainer/ButtonAnimate1/1" to="CenterContainer/ButtonAnimate1" method="_on__button_up"]
+[connection signal="button_up" from="CenterContainer/ButtonAnimate2/2" to="CenterContainer/ButtonAnimate2" method="_on__button_up"]
+[connection signal="button_up" from="CenterContainer/ButtonAnimate3/3" to="CenterContainer/ButtonAnimate3" method="_on__button_up"]

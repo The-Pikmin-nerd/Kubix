@@ -1,0 +1,68 @@
+[gd_scene load_steps=2 format=3 uid="uid://c67goa1wcx5a2"]
+
+[ext_resource type="FontFile" uid="uid://obhs67da4s2u" path="res://Assets/Fonts/8-BIT WONDER.TTF" id="1_rj518"]
+
+[node name="SettingsMain" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1920.0
+offset_bottom = 128.0
+theme_override_fonts/font = ExtResource("1_rj518")
+theme_override_font_sizes/font_size = 90
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Ui annimations" type="CheckButton" parent="."]
+custom_minimum_size = Vector2(-0.105, 0)
+layout_direction = 4
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 144.0
+offset_top = 192.0
+offset_right = 567.0
+offset_bottom = 230.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("1_rj518")
+theme_override_font_sizes/font_size = 30
+button_pressed = true
+text = "Ui Annimations"
+
+[node name="MUSIC" type="CheckButton" parent="."]
+custom_minimum_size = Vector2(-0.105, 0)
+layout_direction = 4
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 144.0
+offset_top = 256.0
+offset_right = 567.0
+offset_bottom = 294.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("1_rj518")
+theme_override_font_sizes/font_size = 30
+button_pressed = true
+text = "Music"
+
+[node name="SFX" type="CheckButton" parent="."]
+custom_minimum_size = Vector2(-0.105, 0)
+layout_direction = 4
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 144.0
+offset_top = 320.0
+offset_right = 567.0
+offset_bottom = 358.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("1_rj518")
+theme_override_font_sizes/font_size = 30
+button_pressed = true
+text = "sfx"

@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://dph8vtvg5tksd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2yge"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sag3m"]
+load_path = "res://.godot/imported/icon.svg-98f4b6f506a1551ca93d876a00636601.ctex"
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.484583, 0.542373, 0.588326, 1)
+
+[node name="Transition" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_h2yge")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_sag3m")
