@@ -10,5 +10,6 @@ func _physics_process(delta: float) -> void:
 
 func _on__button_up() -> void:
 	fall = 0
-	await get_tree().create_timer(1.4).timeout
-	queue_free()
+	await get_tree().create_timer(2.15).timeout
+	print("2.15 s timeout finish redirect on level1")
+	get_tree().change_scene_to_file("res://Senes/Levels/LevelOne.tscn")

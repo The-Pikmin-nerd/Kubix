@@ -12,7 +12,8 @@ script/source = "extends Button
 
 
 func _on_button_up() -> void:
-	get_tree().change_scene_to_file(\"res://Level1.tscn\")
+	await get_tree().create_timer(1.4).timeout
+	queue_free()
 "
 
 [node name="Menu" type="Node2D"]
@@ -72,6 +73,7 @@ text = "3"
 
 [connection signal="button_up" from="CenterContainer/ButtonAnimate1/1" to="." method="_on__button_up"]
 [connection signal="button_up" from="CenterContainer/ButtonAnimate1/1" to="CenterContainer/ButtonAnimate1" method="_on__button_up"]
+[connection signal="button_up" from="CenterContainer/ButtonAnimate1/1" to="CenterContainer/ButtonAnimate1/1" method="_on_button_up"]
 [connection signal="button_up" from="CenterContainer/ButtonAnimate2/2" to="." method="_on__button_up"]
 [connection signal="button_up" from="CenterContainer/ButtonAnimate2/2" to="CenterContainer/ButtonAnimate2" method="_on__button_up"]
 [connection signal="button_up" from="CenterContainer/ButtonAnimate3/3" to="." method="_on__button_up"]
