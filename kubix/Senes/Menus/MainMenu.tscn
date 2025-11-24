@@ -4,7 +4,7 @@
 
 [sub_resource type="GDScript" id="GDScript_p4ecl"]
 script/source = "extends CharacterBody2D
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -600.0
 var fall = 1
 
 func _physics_process(delta: float) -> void:
@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 func _on_button_button_up() -> void:
 	
 	fall = 0
-	await get_tree().create_timer(1.4).timeout
+	await get_tree().create_timer(1.5).timeout
 	get_tree().change_scene_to_file(\"res://Senes/Menus/LevelSelector1.tscn\")
 "
 
@@ -25,19 +25,21 @@ script/source = "extends Button
 func _ready():
 	pass
 
-func _rotate_button():
+func _shrink_and_disappear() -> void:
 	var tween = create_tween()
 
-	# Fait un tour complet autour de son propre centre
-	tween.tween_property(self, \"rotation\", self.rotation + TAU, 0.5)\\
-		.set_trans(Tween.TRANS_LINEAR)
-
-	return tween.finished
+	# On réduit le bouton jusqu'à 0
+	tween.tween_property(self, \"scale\", Vector2.ZERO, 0.5)\\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func _on_button_up() -> void:
-	await _rotate_button()
-	await _rotate_button()
+	await _shrink_and_disappear()
+	await get_tree().create_timer(0.4).timeout
 	get_tree().change_scene_to_file(\"res://Senes/Menus/SettingsMain.tscn\")
+
+
+func _on_button_button_up() -> void:
+	_shrink_and_disappear()
 "
 
 [node name="Menu" type="Node2D"]
@@ -57,16 +59,6 @@ offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="CharacterBody2D/CenterContainer"]
-custom_minimum_size = Vector2(500, 500)
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-theme_override_fonts/font = ExtResource("1_p4ecl")
-theme_override_font_sizes/font_size = 106
-text = "Play"
-script = SubResource("GDScript_lti8b")
-
 [node name="Settings2" type="Button" parent="CharacterBody2D/CenterContainer"]
 top_level = true
 custom_minimum_size = Vector2(152, 152)
@@ -79,5 +71,16 @@ text = "⚙️"
 flat = true
 script = SubResource("GDScript_lti8b")
 
-[connection signal="button_up" from="CharacterBody2D/CenterContainer/Button" to="CharacterBody2D" method="_on_button_button_up"]
+[node name="Button" type="Button" parent="CharacterBody2D/CenterContainer"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("1_p4ecl")
+theme_override_font_sizes/font_size = 106
+text = "Play"
+script = SubResource("GDScript_lti8b")
+
 [connection signal="button_up" from="CharacterBody2D/CenterContainer/Settings2" to="CharacterBody2D/CenterContainer/Settings2" method="_on_button_up"]
+[connection signal="button_up" from="CharacterBody2D/CenterContainer/Button" to="CharacterBody2D" method="_on_button_button_up"]
+[connection signal="button_up" from="CharacterBody2D/CenterContainer/Button" to="CharacterBody2D/CenterContainer/Settings2" method="_on_button_button_up"]

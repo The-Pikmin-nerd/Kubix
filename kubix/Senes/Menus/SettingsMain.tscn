@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://c67goa1wcx5a2"]
+[gd_scene load_steps=4 format=3 uid="uid://c67goa1wcx5a2"]
 
 [ext_resource type="FontFile" uid="uid://obhs67da4s2u" path="res://Assets/Fonts/8-BIT WONDER.TTF" id="1_rj518"]
+[ext_resource type="Script" uid="uid://ddsi6b67sx5d1" path="res://Senes/Menus/label.gd" id="2_hrwdj"]
+[ext_resource type="Script" uid="uid://claxvt6jfldl3" path="res://Senes/Menus/node_2d.gd" id="3_5bda4"]
 
 [node name="SettingsMain" type="Node2D"]
 
@@ -11,15 +13,19 @@ theme_override_fonts/font = ExtResource("1_rj518")
 theme_override_font_sizes/font_size = 90
 text = "Settings"
 horizontal_alignment = 1
+script = ExtResource("2_hrwdj")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="Ui annimations" type="CheckButton" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("3_5bda4")
+
+[node name="Ui annimations" type="CheckButton" parent="Node2D"]
 custom_minimum_size = Vector2(-0.105, 0)
 layout_direction = 4
-anchors_preset = -1
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = 144.0
@@ -33,10 +39,10 @@ theme_override_font_sizes/font_size = 30
 button_pressed = true
 text = "Ui Annimations"
 
-[node name="MUSIC" type="CheckButton" parent="."]
+[node name="MUSIC" type="CheckButton" parent="Node2D"]
 custom_minimum_size = Vector2(-0.105, 0)
 layout_direction = 4
-anchors_preset = -1
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = 144.0
@@ -50,10 +56,10 @@ theme_override_font_sizes/font_size = 30
 button_pressed = true
 text = "Music"
 
-[node name="SFX" type="CheckButton" parent="."]
+[node name="SFX" type="CheckButton" parent="Node2D"]
 custom_minimum_size = Vector2(-0.105, 0)
 layout_direction = 4
-anchors_preset = -1
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = 144.0
