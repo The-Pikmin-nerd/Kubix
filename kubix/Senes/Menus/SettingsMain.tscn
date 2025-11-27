@@ -40,6 +40,7 @@ button_pressed = true
 text = "Ui Annimations"
 
 [node name="MUSIC" type="CheckButton" parent="Node2D"]
+visible = false
 custom_minimum_size = Vector2(-0.105, 0)
 layout_direction = 4
 anchors_preset = 1
