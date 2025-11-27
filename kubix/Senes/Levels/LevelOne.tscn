@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1vq6ihbo1mu5"]
+[gd_scene load_steps=7 format=3 uid="uid://d1vq6ihbo1mu5"]
 
 [ext_resource type="Script" uid="uid://davd52bn65hxw" path="res://Senes/Levels/level_one.gd" id="1_alkwa"]
 [ext_resource type="PackedScene" uid="uid://brot54c21jpnt" path="res://Assets/Shaders/Vortex/Vortexscene.tscn" id="2_24nka"]
 [ext_resource type="Script" uid="uid://cn4fcsbnefnc7" path="res://Assets/Shaders/Vortex/vortexscene.gd" id="3_o3o41"]
 [ext_resource type="Texture2D" uid="uid://d26hsdltsepkf" path="res://Assets/Sprites/Sprite.png" id="4_3vfci"]
 [ext_resource type="Script" uid="uid://42uqsb4je07v" path="res://Senes/Levels/sprite.gd" id="5_5fdol"]
+[ext_resource type="AudioStream" uid="uid://b25jxs514rpd" path="res://Assets/Sounds/Music/game-8-bit-399898.mp3" id="6_5fdol"]
 
 [node name="LevelOne" type="Node2D"]
 script = ExtResource("1_alkwa")
@@ -20,3 +21,9 @@ position = Vector2(408, 464)
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("4_3vfci")
 script = ExtResource("5_5fdol")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-424, 416)
+stream = ExtResource("6_5fdol")
+autoplay = true
+parameters/looping = true

@@ -1,8 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://c67goa1wcx5a2"]
+[gd_scene load_steps=6 format=3 uid="uid://c67goa1wcx5a2"]
 
 [ext_resource type="FontFile" uid="uid://obhs67da4s2u" path="res://Assets/Fonts/8-BIT WONDER.TTF" id="1_rj518"]
 [ext_resource type="Script" uid="uid://ddsi6b67sx5d1" path="res://Senes/Menus/label.gd" id="2_hrwdj"]
 [ext_resource type="Script" uid="uid://claxvt6jfldl3" path="res://Senes/Menus/node_2d.gd" id="3_5bda4"]
+[ext_resource type="AudioStream" uid="uid://dqpwefuu8c8j6" path="res://Assets/Sounds/Music/8-bit-dungeon-251388.mp3" id="4_nm2ri"]
+
+[sub_resource type="GDScript" id="GDScript_nm2ri"]
+script/source = "extends AudioStreamPlayer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [node name="SettingsMain" type="Node2D"]
 
@@ -40,7 +55,6 @@ button_pressed = true
 text = "Ui Annimations"
 
 [node name="MUSIC" type="CheckButton" parent="Node2D"]
-visible = false
 custom_minimum_size = Vector2(-0.105, 0)
 layout_direction = 4
 anchors_preset = 1
@@ -73,3 +87,9 @@ theme_override_fonts/font = ExtResource("1_rj518")
 theme_override_font_sizes/font_size = 30
 button_pressed = true
 text = "sfx"
+
+[node name="SettingMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_nm2ri")
+autoplay = true
+parameters/looping = true
+script = SubResource("GDScript_nm2ri")
