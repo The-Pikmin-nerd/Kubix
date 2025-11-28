@@ -19,7 +19,7 @@ func _ready() -> void:
 	Appear()
 	await get_tree().create_timer(3).timeout
 	_shrink_and_disappear()
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(3).timeout
 	queue_free() #optimization
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

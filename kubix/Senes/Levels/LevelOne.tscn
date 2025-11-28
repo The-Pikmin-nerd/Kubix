@@ -1,29 +1,73 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1vq6ihbo1mu5"]
+[gd_scene load_steps=9 format=3 uid="uid://d1vq6ihbo1mu5"]
 
 [ext_resource type="Script" uid="uid://davd52bn65hxw" path="res://Senes/Levels/level_one.gd" id="1_alkwa"]
 [ext_resource type="PackedScene" uid="uid://brot54c21jpnt" path="res://Assets/Shaders/Vortex/Vortexscene.tscn" id="2_24nka"]
 [ext_resource type="Script" uid="uid://cn4fcsbnefnc7" path="res://Assets/Shaders/Vortex/vortexscene.gd" id="3_o3o41"]
-[ext_resource type="Texture2D" uid="uid://d26hsdltsepkf" path="res://Assets/Sprites/Sprite.png" id="4_3vfci"]
-[ext_resource type="Script" uid="uid://42uqsb4je07v" path="res://Senes/Levels/sprite.gd" id="5_5fdol"]
+[ext_resource type="PackedScene" uid="uid://c8g328bcmdj2t" path="res://Assets/Sprites/Player.tscn" id="5_3vfci"]
 [ext_resource type="AudioStream" uid="uid://b25jxs514rpd" path="res://Assets/Sounds/Music/game-8-bit-399898.mp3" id="6_5fdol"]
+
+[sub_resource type="GDScript" id="GDScript_5fdol"]
+script/source = "extends CharacterBody2D
+func _ready() -> void:
+	await get_tree().create_timer(3.5).timeout
+	print(\"Konsole : Deleted CynematicLok Entiti\")
+	queue_free()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0u7h"]
+size = Vector2(156, 88)
+
+[sub_resource type="GDScript" id="GDScript_3vfci"]
+script/source = "extends CollisionShape2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	await get_tree().create_timer(3.5).timeout
+	print(\"Konsole : Deleted Colisionshape cynematiclok Entiti\")
+	queue_free()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [node name="LevelOne" type="Node2D"]
 script = ExtResource("1_alkwa")
 
 [node name="TextureRect" parent="." instance=ExtResource("2_24nka")]
-offset_top = 16.0
-offset_right = 848.0
-offset_bottom = 856.0
+offset_left = 16.0
+offset_top = 24.0
+offset_right = 864.0
+offset_bottom = 864.0
 script = ExtResource("3_o3o41")
-
-[node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(408, 464)
-scale = Vector2(1e-05, 1e-05)
-texture = ExtResource("4_3vfci")
-script = ExtResource("5_5fdol")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-424, 416)
 stream = ExtResource("6_5fdol")
 autoplay = true
 parameters/looping = true
+
+[node name="Node2D" parent="." instance=ExtResource("5_3vfci")]
+
+[node name="CynematicLok" type="CharacterBody2D" parent="."]
+position = Vector2(16, 24)
+script = SubResource("GDScript_5fdol")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CynematicLok"]
+position = Vector2(400, 536)
+shape = SubResource("RectangleShape2D_l0u7h")
+script = SubResource("GDScript_3vfci")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CynematicLok"]
+position = Vector2(264, 440)
+shape = SubResource("RectangleShape2D_l0u7h")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="CynematicLok"]
+position = Vector2(520, 440)
+shape = SubResource("RectangleShape2D_l0u7h")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="CynematicLok"]
+position = Vector2(400, 352)
+shape = SubResource("RectangleShape2D_l0u7h")

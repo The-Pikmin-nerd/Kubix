@@ -1,0 +1,34 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://b4krk3gsxuind"]
+
+[ext_resource type="Shader" uid="uid://s3jiux4v8uef" path="res://galaxy.gdshader" id="1_kcsie"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tlwt5"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_aqk2v"]
+generate_mipmaps = false
+noise = SubResource("FastNoiseLite_tlwt5")
+seamless = true
+normalize = false
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fj7yv"]
+noise_type = 0
+frequency = 0.0444
+domain_warp_enabled = true
+domain_warp_type = 2
+domain_warp_amplitude = 14.725
+domain_warp_frequency = 0.025
+domain_warp_fractal_type = 2
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_tlwt5"]
+height = 32
+noise = SubResource("FastNoiseLite_fj7yv")
+seamless = true
+seamless_blend_skirt = 0.467
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_kcsie")
+shader_parameter/radius = 4.8
+shader_parameter/height = 0.64
+shader_parameter/noise = SubResource("NoiseTexture2D_aqk2v")
+shader_parameter/noise3D = SubResource("NoiseTexture3D_tlwt5")

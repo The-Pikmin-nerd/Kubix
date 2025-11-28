@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://bkrb8odfmiitq"]
+
+[ext_resource type="Script" uid="uid://bh1nl7ke1twfv" path="res://world.gd" id="1_3van1"]
+[ext_resource type="Material" uid="uid://b4krk3gsxuind" path="res://galaxy.tres" id="2_obluv"]
+[ext_resource type="Environment" uid="uid://cf1as7fg8s082" path="res://environment.tres" id="3_iq8kf"]
+[ext_resource type="Script" uid="uid://c8tqb4h8ih4ln" path="res://camera_3d.gd" id="4_77xkn"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_dwbse"]
+top_radius = 5.0
+bottom_radius = 5.0
+height = 0.7
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tlwt5"]
+flip_faces = true
+top_radius = 5.5
+bottom_radius = 5.5
+height = 1.2
+radial_segments = 12
+rings = 0
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_3van1")
+
+[node name="VolumetrixBoxOutside" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.99999976, 0, 0, 0)
+material_override = ExtResource("2_obluv")
+instance_shader_parameters/fromOutside = true
+mesh = SubResource("CylinderMesh_dwbse")
+
+[node name="VolumetrixBoxInside" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.99999976, 0, 0, 0)
+visible = false
+material_override = ExtResource("2_obluv")
+instance_shader_parameters/fromOutside = false
+mesh = SubResource("CylinderMesh_tlwt5")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("3_iq8kf")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.51632404, 0.8563933, 0, -0.8563933, 0.51632404, -0.48742914, 8.113202, 5.5466676)
+visible = false
+current = true
+script = ExtResource("4_77xkn")

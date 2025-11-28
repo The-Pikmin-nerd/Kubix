@@ -1,0 +1,28 @@
+[gd_resource type="Environment" load_steps=5 format=3 uid="uid://cf1as7fg8s082"]
+
+[ext_resource type="CompressedCubemap" uid="uid://d0bsal1ut1nui" path="res://skybox.png" id="1_0wybp"]
+
+[sub_resource type="Shader" id="Shader_yk5tl"]
+code = "shader_type sky;
+
+uniform samplerCube skybox;
+
+void sky() {
+	COLOR = pow(texture(skybox, EYEDIR).rgb, vec3(2.2, 2.2, 2.2));
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0wybp"]
+shader = SubResource("Shader_yk5tl")
+shader_parameter/skybox = ExtResource("1_0wybp")
+
+[sub_resource type="Sky" id="Sky_scygu"]
+sky_material = SubResource("ShaderMaterial_0wybp")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_scygu")
+volumetric_fog_density = 0.0
+adjustment_brightness = 2.64
+adjustment_contrast = 0.87
+adjustment_saturation = 8.0
