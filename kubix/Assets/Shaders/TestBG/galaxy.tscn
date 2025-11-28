@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://bkrb8odfmiitq"]
 
-[ext_resource type="Script" uid="uid://bh1nl7ke1twfv" path="res://world.gd" id="1_3van1"]
-[ext_resource type="Material" uid="uid://b4krk3gsxuind" path="res://galaxy.tres" id="2_obluv"]
-[ext_resource type="Environment" uid="uid://cf1as7fg8s082" path="res://environment.tres" id="3_iq8kf"]
-[ext_resource type="Script" uid="uid://c8tqb4h8ih4ln" path="res://camera_3d.gd" id="4_77xkn"]
+[ext_resource type="Script" uid="uid://bh1nl7ke1twfv" path="res://Assets/Shaders/TestBG/world.gd" id="1_3van1"]
+[ext_resource type="Material" uid="uid://b4krk3gsxuind" path="res://Assets/Shaders/TestBG/galaxy.tres" id="2_obluv"]
+[ext_resource type="Environment" uid="uid://cf1as7fg8s082" path="res://Assets/Shaders/TestBG/environment.tres" id="3_iq8kf"]
+[ext_resource type="Script" uid="uid://c8tqb4h8ih4ln" path="res://Assets/Shaders/TestBG/camera_3d.gd" id="4_77xkn"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_dwbse"]
 top_radius = 5.0

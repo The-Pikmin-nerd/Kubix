@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://p4t64le73iy3"]
 
-[ext_resource type="Shader" uid="uid://chxflauolk0t3" path="res://black_hole.gdshader" id="1_j4boo"]
-[ext_resource type="CompressedCubemap" uid="uid://d0bsal1ut1nui" path="res://skybox.png" id="2_6hj2r"]
+[ext_resource type="Shader" uid="uid://chxflauolk0t3" path="res://Assets/Shaders/TestBG/black_hole.gdshader" id="1_j4boo"]
+[ext_resource type="CompressedCubemap" uid="uid://d0bsal1ut1nui" path="res://Assets/Shaders/TestBG/skybox.png" id="2_6hj2r"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_cmqjf"]
 noise_type = 0

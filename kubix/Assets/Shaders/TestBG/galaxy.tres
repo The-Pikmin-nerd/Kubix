@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://b4krk3gsxuind"]
 
-[ext_resource type="Shader" uid="uid://s3jiux4v8uef" path="res://galaxy.gdshader" id="1_kcsie"]
+[ext_resource type="Shader" uid="uid://s3jiux4v8uef" path="res://Assets/Shaders/TestBG/galaxy.gdshader" id="1_kcsie"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_tlwt5"]
 

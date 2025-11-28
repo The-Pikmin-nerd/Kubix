@@ -1,6 +1,6 @@
 [gd_resource type="Environment" load_steps=5 format=3 uid="uid://cf1as7fg8s082"]
 
-[ext_resource type="CompressedCubemap" uid="uid://d0bsal1ut1nui" path="res://skybox.png" id="1_0wybp"]
+[ext_resource type="CompressedCubemap" uid="uid://d0bsal1ut1nui" path="res://Assets/Shaders/TestBG/skybox.png" id="1_0wybp"]
 
 [sub_resource type="Shader" id="Shader_yk5tl"]
 code = "shader_type sky;
