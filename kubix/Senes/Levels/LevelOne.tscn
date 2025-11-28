@@ -5,33 +5,18 @@
 [ext_resource type="Script" uid="uid://cn4fcsbnefnc7" path="res://Assets/Shaders/Vortex/vortexscene.gd" id="3_o3o41"]
 [ext_resource type="PackedScene" uid="uid://c8g328bcmdj2t" path="res://Assets/Sprites/Player.tscn" id="5_3vfci"]
 [ext_resource type="AudioStream" uid="uid://b25jxs514rpd" path="res://Assets/Sounds/Music/game-8-bit-399898.mp3" id="6_5fdol"]
+[ext_resource type="Script" uid="uid://cnq75loq4c60a" path="res://Senes/Levels/KolisonCynematicLok.tres.gd" id="6_l0u7h"]
 
 [sub_resource type="GDScript" id="GDScript_5fdol"]
 script/source = "extends CharacterBody2D
 func _ready() -> void:
-	await get_tree().create_timer(3.5).timeout
+	await get_tree().create_timer(3.1).timeout
 	print(\"Konsole : Deleted CynematicLok Entiti\")
 	queue_free()
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0u7h"]
 size = Vector2(156, 88)
-
-[sub_resource type="GDScript" id="GDScript_3vfci"]
-script/source = "extends CollisionShape2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	await get_tree().create_timer(3.5).timeout
-	print(\"Konsole : Deleted Colisionshape cynematiclok Entiti\")
-	queue_free()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
 
 [node name="LevelOne" type="Node2D"]
 script = ExtResource("1_alkwa")
@@ -58,16 +43,19 @@ script = SubResource("GDScript_5fdol")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CynematicLok"]
 position = Vector2(400, 536)
 shape = SubResource("RectangleShape2D_l0u7h")
-script = SubResource("GDScript_3vfci")
+script = ExtResource("6_l0u7h")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CynematicLok"]
 position = Vector2(264, 440)
 shape = SubResource("RectangleShape2D_l0u7h")
+script = ExtResource("6_l0u7h")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="CynematicLok"]
 position = Vector2(520, 440)
 shape = SubResource("RectangleShape2D_l0u7h")
+script = ExtResource("6_l0u7h")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="CynematicLok"]
 position = Vector2(400, 352)
 shape = SubResource("RectangleShape2D_l0u7h")
+script = ExtResource("6_l0u7h")

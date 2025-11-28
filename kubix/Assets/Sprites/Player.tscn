@@ -2,20 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://d26hsdltsepkf" path="res://Assets/Sprites/Sprite.png" id="1_pul6n"]
 
-[sub_resource type="GDScript" id="GDScript_c8p6k"]
-script/source = "extends Node2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
 [sub_resource type="GDScript" id="GDScript_ojcox"]
 script/source = "extends CharacterBody2D
 
@@ -44,11 +30,23 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 "
 
+[sub_resource type="GDScript" id="GDScript_c8p6k"]
+script/source = "extends Sprite2D
+
+
+func _on_player_ready() -> void:
+	scale = Vector2(0, 0)
+	await get_tree().create_timer(1).timeout
+	var tween := create_tween()
+
+	# Scale 0 → 1 en 1 seconde
+	tween.tween_property(self, \"scale\", Vector2(1, 1), 1.0)
+"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lujue"]
 size = Vector2(960.00024, 960.0005)
 
 [node name="Player" type="Node2D"]
-script = SubResource("GDScript_c8p6k")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(408, 464)
@@ -58,7 +56,10 @@ script = SubResource("GDScript_ojcox")
 [node name="Sprite" type="Sprite2D" parent="Player"]
 scale = Vector2(0.9999998, 0.9999998)
 texture = ExtResource("1_pul6n")
+script = SubResource("GDScript_c8p6k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("RectangleShape2D_lujue")
+
+[connection signal="ready" from="." to="Player/Sprite" method="_on_player_ready"]
