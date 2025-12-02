@@ -46,7 +46,7 @@ shape = SubResource("RectangleShape2D_l0u7h")
 script = ExtResource("6_l0u7h")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CynematicLok"]
-position = Vector2(264, 440)
+position = Vector2(256, 448)
 shape = SubResource("RectangleShape2D_l0u7h")
 script = ExtResource("6_l0u7h")
 
